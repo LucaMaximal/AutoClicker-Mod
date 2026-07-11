@@ -1,23 +1,27 @@
 package io.github.itzispyder.autoclicker;
 
+import com.mojang.blaze3d.platform.InputConstants;
 import io.github.itzispyder.autoclicker.ui.Config;
 import io.github.itzispyder.autoclicker.ui.Events;
 import io.github.itzispyder.improperui.ImproperUIAPI;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
-import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
-import net.minecraft.client.option.KeyBinding;
-import net.minecraft.client.util.InputUtil;
-import net.minecraft.util.Identifier;
+import net.fabricmc.fabric.api.client.keymapping.v1.KeyMappingHelper;
+import net.minecraft.client.KeyMapping;
+import net.minecraft.resources.Identifier;
 import org.lwjgl.glfw.GLFW;
 
 public class AutoClicker implements ModInitializer, Global {
 
-    public static final KeyBinding BIND = KeyBindingHelper.registerKeyBinding(new KeyBinding(
+    public static final KeyMapping.Category CATEGORY = KeyMapping.Category.register(
+            Identifier.fromNamespaceAndPath(modId, "binds")
+    );
+
+    public static final KeyMapping BIND = KeyMappingHelper.registerKeyMapping(new KeyMapping(
             "binds.autoclicker.menu",
-            InputUtil.Type.KEYSYM,
+            InputConstants.Type.KEYSYM,
             GLFW.GLFW_KEY_0,
-            KeyBinding.Category.create(Identifier.of("binds.autoclicker"))
+            CATEGORY
     ));
 
     @Override
@@ -33,7 +37,7 @@ public class AutoClicker implements ModInitializer, Global {
             Events.onTick();
         });
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
-            while (BIND.wasPressed()) {
+            while (BIND.consumeClick()) {
                 ImproperUIAPI.parseAndRunFile(modId, "screen.ui");
             }
         });
