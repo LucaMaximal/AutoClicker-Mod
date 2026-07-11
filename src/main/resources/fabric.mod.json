@@ -3,12 +3,14 @@
   "id": "autoclicker",
   "version": "${version}",
   "name": "AutoClicker",
-  "description": "Various mouse-clicking methods",
+  "description": "A lightweight and customizable Fabric AutoClicker mod for Minecraft.",
   "authors": [
-    "ImproperIssues"
+    "LucaMaximal"
   ],
   "contact": {
-    "repo": "https://github.com/ItziSpyder/AutoClicker"
+    "homepage": "https://github.com/LucaMaximal/AutoClicker-Mod",
+    "sources": "https://github.com/LucaMaximal/AutoClicker-Mod",
+    "issues": "https://github.com/LucaMaximal/AutoClicker-Mod/issues"
   },
   "license": "All-Rights-Reserved",
   "icon": "assets/autoclicker/icon.png",
