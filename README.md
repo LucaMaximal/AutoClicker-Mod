@@ -3,6 +3,14 @@
 ---
 An advanced autoclicker for Minecraft.
 
+## Version
+
+- Version: v1.0.0
+- Minecraft: 26.2
+- Java: 25
+- Fabric Loader: 0.19.3
+- Fabric API: 0.154.2+26.2
+
 
 ## Download
 

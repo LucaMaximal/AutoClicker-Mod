@@ -1,22 +1,18 @@
 package io.github.itzispyder.autoclicker.mixin;
 
-import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.Minecraft;
 import org.spongepowered.asm.mixin.Mixin;
-import org.spongepowered.asm.mixin.Mutable;
 import org.spongepowered.asm.mixin.gen.Invoker;
 
-@Mixin(MinecraftClient.class)
+@Mixin(Minecraft.class)
 public interface AccessorMinecraftClient {
 
-    @Mutable
-    @Invoker("doAttack")
+    @Invoker("startAttack")
     boolean leftClick();
 
-    @Mutable
-    @Invoker("doItemUse")
+    @Invoker("startUseItem")
     void rightClick();
 
-    @Mutable
-    @Invoker("doItemPick")
+    @Invoker("pickBlock")
     void middleClick();
 }
