@@ -1,3 +1,9 @@
+<p align="center">
+
+<img src="images/autoclicker-logo.png" width="100%">
+
+</p>
+
 <div align="center">
 
 # AutoClicker Mod
